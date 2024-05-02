@@ -40,15 +40,15 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <>
       <Head>
-        <title>人生一格 - H.L Toolkits</title>
+        <title>天气预报 - H.L Toolkits</title>
         <link rel="icon" href={`${getRoutePrefix()}/favicon.ico`} />
         <meta
           name="description"
-          content="人生进度条，人生是一条无止境的路，你永远不知道自己会遇到什么样的困难，但是你要相信，只要你勇敢地走过去，剩余的问题就显得微不足道了。"
+          content="天气预报仿佛是一位守护者，在黑夜降临之前，轻声呢喃着大自然的秘密，为我们揭开了星辰交错下的天象之谜。"
         />
         <meta
           name="keywords"
-          content="人生一格,人生格式化,人生小格,toolkit,toolkits,前端开发,前端开发工具,前端开发工具集合,在线工具,toolbox,frontend,卡鲁秋,Hank,HankLiu"
+          content="天气,天气预报,最新天气,toolkit,toolkits,前端开发,前端开发工具,前端开发工具集合,在线工具,toolbox,frontend,卡鲁秋,Hank,HankLiu"
         />
         <meta name="author" content="Hank.Liu" />
       </Head>
