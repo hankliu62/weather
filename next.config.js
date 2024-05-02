@@ -25,7 +25,6 @@ const nextConfig = {
   // },
   env: {
     ROUTE_PREFIX: '',
-    TIANAPI_KEY: process.env.TIANAPI_KEY,
     MXNZPAPI_KEY: process.env.MXNZPAPI_KEY,
     MXNZPAPI_SECRET: process.env.MXNZPAPI_SECRET,
   },
@@ -45,7 +44,7 @@ if (isGithubActions) {
   nextConfig.env.ROUTE_PREFIX = `/${repo}`;
 
   const {
-    env: { TIANAPI_KEY, MXNZPAPI_KEY, MXNZPAPI_SECRET, ...envs },
+    env: { MXNZPAPI_KEY, MXNZPAPI_SECRET, ...envs },
     ...conf
   } = nextConfig;
   console.log('next config is:', { ...conf, env: { ...envs } });
