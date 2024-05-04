@@ -1,6 +1,6 @@
 import AOS from 'aos';
 import React, { useEffect, useMemo, useState } from 'react';
-import { Card, Skeleton, Tooltip, HlImage, Table } from '@hankliu/hankliu-ui';
+import { Card, Skeleton, Tooltip, HlImage, Table, Breadcrumb } from '@hankliu/hankliu-ui';
 import DayJs from 'dayjs';
 import {
   BulbOutlined,
@@ -12,14 +12,16 @@ import {
 } from '@hankliu/icons';
 import classNames from 'classnames';
 import LocationSelect from '@/components/LocationSelect';
-import type { IWeatherData} from '@/services/frontend';
+import type { IWeatherData } from '@/services/frontend';
 import { fetchWeather } from '@/services/frontend';
 import { getRoutePrefix } from '@/utils/route';
 import type { ColumnsType } from '@hankliu/hankliu-ui/lib/table';
 import TemperatureChart from '@/components/TemperatureChart';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 /**
- * 人生一格
+ * 天气预报
  *
  * @returns
  */
@@ -27,6 +29,7 @@ export default function Index() {
   const [city, setCity] = useState<any>();
   const [fetching, setFetching] = useState<boolean>(false);
   const [weatherData, setWeatherData] = useState<IWeatherData>();
+  const router = useRouter();
 
   const fetchFeatureWeather = async (cityName: string) => {
     setFetching(true);
@@ -122,6 +125,15 @@ export default function Index() {
 
   return (
     <div className="relative w-full text-white/75">
+      {!!router.query?.['with-breadcrumb'] && (
+        <Breadcrumb className="!m-6 !text-base" separator="/">
+          <Breadcrumb.Item>
+            <Link href="https://hankliu62.github.io/toolkits/">小工具集合</Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item>天气预报</Breadcrumb.Item>
+        </Breadcrumb>
+      )}
+
       <div className="relative z-20 mx-auto mt-6 w-full max-w-[1920px]">
         <div className="flex flex-col flex-wrap">
           {/* 城市 */}
