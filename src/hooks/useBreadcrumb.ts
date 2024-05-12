@@ -4,20 +4,23 @@ import useTopWindow from './useTopWindow';
 function useBreadcrumb() {
   const isTop = useTopWindow();
 
-  const onClickBreadcrumb = useCallback((event) => {
-    if (isTop) {
-      window.location.href = 'https://hankliu62.github.io/toolkits/';
-    } else {
-      window.top.postMessage(
-        {
-          type: 'homepage',
-        },
-        '*',
-      );
-    }
+  const onClickBreadcrumb = useCallback(
+    (event) => {
+      if (isTop) {
+        window.location.href = 'https://hankliu62.github.io/toolkits/';
+      } else {
+        window.top.postMessage(
+          {
+            type: 'homepage',
+          },
+          '*',
+        );
+      }
 
-    event?.preventDefault();
-  }, []);
+      event?.preventDefault();
+    },
+    [isTop],
+  );
 
   return onClickBreadcrumb;
 }

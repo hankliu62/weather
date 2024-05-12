@@ -130,7 +130,9 @@ export default function Index() {
       {!!router.query?.['with-breadcrumb'] && (
         <Breadcrumb className="!m-6 !text-base" separator="/">
           <Breadcrumb.Item>
-            <a onClick={onClickBreadcrumb}>小工具集合</a>
+            <Link href="https://hankliu62.github.io/toolkits/" onClick={onClickBreadcrumb}>
+              小工具集合
+            </Link>
           </Breadcrumb.Item>
           <Breadcrumb.Item>天气预报</Breadcrumb.Item>
         </Breadcrumb>
