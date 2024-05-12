@@ -10,10 +10,7 @@ function useBreadcrumb() {
     } else {
       window.top.postMessage(
         {
-          type: 'breadcrumb',
-          data: {
-            href: 'https://hankliu62.github.io/toolkits/',
-          },
+          type: 'homepage',
         },
         '*',
       );
