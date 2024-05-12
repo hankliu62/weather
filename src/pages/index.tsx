@@ -19,6 +19,7 @@ import type { ColumnsType } from '@hankliu/hankliu-ui/lib/table';
 import TemperatureChart from '@/components/TemperatureChart';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import useBreadcrumb from '@/hooks/useBreadcrumb';
 
 /**
  * 天气预报
@@ -30,6 +31,7 @@ export default function Index() {
   const [fetching, setFetching] = useState<boolean>(false);
   const [weatherData, setWeatherData] = useState<IWeatherData>();
   const router = useRouter();
+  const onClickBreadcrumb = useBreadcrumb();
 
   const fetchFeatureWeather = async (cityName: string) => {
     setFetching(true);
@@ -128,7 +130,9 @@ export default function Index() {
       {!!router.query?.['with-breadcrumb'] && (
         <Breadcrumb className="!m-6 !text-base" separator="/">
           <Breadcrumb.Item>
-            <Link href="https://hankliu62.github.io/toolkits/">小工具集合</Link>
+            <Link href="https://hankliu62.github.io/toolkits/" onClick={onClickBreadcrumb}>
+              小工具集合
+            </Link>
           </Breadcrumb.Item>
           <Breadcrumb.Item>天气预报</Breadcrumb.Item>
         </Breadcrumb>
