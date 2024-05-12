@@ -17,7 +17,7 @@ import { fetchWeather } from '@/services/frontend';
 import { getRoutePrefix } from '@/utils/route';
 import type { ColumnsType } from '@hankliu/hankliu-ui/lib/table';
 import TemperatureChart from '@/components/TemperatureChart';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { useRouter } from 'next/router';
 import useBreadcrumb from '@/hooks/useBreadcrumb';
 
