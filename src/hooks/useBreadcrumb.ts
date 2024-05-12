@@ -8,7 +8,15 @@ function useBreadcrumb() {
     if (isTop) {
       window.location.href = 'https://hankliu62.github.io/toolkits/';
     } else {
-      window.top.location.href = 'https://hankliu62.github.io/toolkits/';
+      window.top.postMessage(
+        {
+          type: 'breadcrumb',
+          data: {
+            href: 'https://hankliu62.github.io/toolkits/',
+          },
+        },
+        '*',
+      );
     }
 
     event?.preventDefault();
